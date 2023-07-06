@@ -2,9 +2,7 @@ from flask import Flask, render_template, request
 import csv
 import random
 
-
 app = Flask(__name__)
-times_data = []
 jdata = []
 
 with open('times.csv', 'r') as csvfile:
