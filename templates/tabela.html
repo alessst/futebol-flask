@@ -3,19 +3,26 @@
 
 </head>
 <body>
-<form method="POST" action="{{ url_for('tabela') }}">
-        <h1 style="text-align: center;">Adivinhe o Escudo</h1>
-        <img id="escudo" src="{{escudo}}" alt="escudo borrado" >
-        <br>
-        <div style="text-align: center;">  
+
+    <h1 style="text-align: center;">Adivinhe o Escudo</h1>
+    <img id="escudo" src="{{escudo}}" alt="escudo borrado">
+    <br>
+    <div style="text-align: center;">
         <input type="text" id="palpite" name="valor" placeholder="Digite seu palpite">
         <button onclick="verificarPalpite()">Verificar</button>
-        </div>
-        <p style="text-align: center;" id="feedback"></p>
-</form>
+    </div>
+    <p style="text-align: center;" id="feedback"></p>
+
+    <div class="button-container">
+        <button onclick="novoTime()">Novo time</button>
+    </div>
 
 <script>
     var nomeTime = "{{ nome_time }}";
+    var escudo = document.getElementById("escudo")
+    var valorcss ; 
+    var calculocss;
+    var contadorTentativas = 0;
 
     function verificarPalpite() {
         var palpite = document.getElementById("palpite").value;
@@ -24,12 +31,30 @@
         if (palpite.toLowerCase() === nomeTime.toLowerCase()) {
             feedback.innerHTML = "Parabéns! Você acertou o escudo do " + nomeTime + ".";
             feedback.style.color = "green";
+            escudo.style.filter = "none";
             document.getElementById("palpite").disabled = true;
             document.getElementsByTagName("button")[0].disabled = true;
+            document.getElementsByTagName("button")[1].disabled = false; // Habilita o botão "Novo time"
         } else {
-            feedback.innerHTML = "Palpite incorreto. Tente novamente.";
-            feedback.style.color = "red";
+            contadorTentativas++;
+            feedback.innerHTML = "Palpite incorreto. Tente novamente: " + contadorTentativas + " tentativas.";
+            if(contadorTentativas === 5){
+                escudo.style.filter = "blur(5px)";
+                
+            }
+            if (contadorTentativas === 10) {
+                feedback.innerHTML += " Limite de tentativas atingido o nome do time é "+ nomeTime + ".";
+                feedback.style.color = "red";
+                escudo.style.filter = "none";
+                document.getElementById("palpite").disabled = true;
+                document.getElementsByTagName("button")[0].disabled = true;
+                document.getElementsByTagName("button")[1].disabled = false; // Habilita o botão "Novo time"
+            }
         }
+    }
+
+    function novoTime() {
+        location.reload(); // Atualiza a página
     }
 </script>
 
