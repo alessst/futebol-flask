@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block conteudo %}
+
+</head>
+<body>
+<form method="POST" action="{{ url_for('tabela') }}">
+        <h1 style="text-align: center;">Adivinhe o Escudo</h1>
+        <img id="escudo" src="{{escudo}}" alt="escudo borrado" >
+        <br>
+        <div style="text-align: center;">  
+        <input type="text" id="palpite" name="valor" placeholder="Digite seu palpite">
+        <button onclick="verificarPalpite()">Verificar</button>
+        </div>
+        <p style="text-align: center;" id="feedback"></p>
+</form>
+
+<script>
+    var nomeTime = "{{ nome_time }}";
+
+    function verificarPalpite() {
+        var palpite = document.getElementById("palpite").value;
+        var feedback = document.getElementById("feedback");
+
+        if (palpite.toLowerCase() === nomeTime.toLowerCase()) {
+            feedback.innerHTML = "Parabéns! Você acertou o escudo do " + nomeTime + ".";
+            feedback.style.color = "green";
+            document.getElementById("palpite").disabled = true;
+            document.getElementsByTagName("button")[0].disabled = true;
+        } else {
+            feedback.innerHTML = "Palpite incorreto. Tente novamente.";
+            feedback.style.color = "red";
+        }
+    }
+</script>
+
+{% endblock conteudo %}
