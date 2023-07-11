@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block conteudo %}
+
+<h1 style="text-align: center;">Adicione sua pontuação</h1>
+<br><br>
+<form action="{{url_for('jogador')}}" method="POST" class="form-control">
+    <label>Nome</label>
+    <input class="form-control" type="text" name="nome" placeholder="Digite seu nome..." required>
+    <input class="form-control" type="text" name="ponto" placeholder="Pontuação..." required>
+    <button class="btn btn-success">Adicionar</button>
+    <p>Sua pontuação é <strong> 1000 </strong></p>
+</form>
+{% endblock conteudo %}

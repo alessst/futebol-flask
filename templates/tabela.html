@@ -4,7 +4,7 @@
 </head>
 <body>
 
-    <h1 style="text-align: center;">Adivinhe o Escudo</h1>
+    <h1 style="text-align: center;">Adivinhe o Escudo </h1>
     <img id="escudo" src="{{escudo}}" alt="escudo borrado">
     <br>
     <div style="text-align: center;">
@@ -12,50 +12,76 @@
         <button onclick="verificarPalpite()">Verificar</button>
     </div>
     <p style="text-align: center;" id="feedback"></p>
+    <p name="ponto" id="ponto"></p>
 
     <div class="button-container">
-        <button onclick="novoTime()">Novo time</button>
+        <button onclick="novoTime()" id="novoTimeBtn" disabled>Novo time</button>
     </div>
+
+    <div class="table-container">
+        <a href="{{url_for('jogador')}}" class="btn btn-secondary" style="background-color: brown;">Adicione sua pontuação</a>
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Pontos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ponto in pontos %}
+                <tr>
+                    <td>{{ponto.nome}}</td>
+                    <td>{{ponto.pt}} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</table>
 
 <script>
     var nomeTime = "{{ nome_time }}";
-    var escudo = document.getElementById("escudo")
-    var valorcss ; 
+    var escudo = document.getElementById("escudo");
+    var par_ponto = document.getElementById("ponto")
+    var valorcss; 
     var calculocss;
     var contadorTentativas = 0;
+    var pontos = 10;
 
     function verificarPalpite() {
         var palpite = document.getElementById("palpite").value;
         var feedback = document.getElementById("feedback");
 
         if (palpite.toLowerCase() === nomeTime.toLowerCase()) {
-            feedback.innerHTML = "Parabéns! Você acertou o escudo do " + nomeTime + ".";
+            feedback.innerHTML = "Parabéns! Você acertou o escudo do " + nomeTime + ". Pontos: " + pontos;
             feedback.style.color = "green";
             escudo.style.filter = "none";
             document.getElementById("palpite").disabled = true;
             document.getElementsByTagName("button")[0].disabled = true;
-            document.getElementsByTagName("button")[1].disabled = false; // Habilita o botão "Novo time"
+            document.getElementById("novoTimeBtn").disabled = false;
         } else {
             contadorTentativas++;
             feedback.innerHTML = "Palpite incorreto. Tente novamente: " + contadorTentativas + " tentativas.";
-            if(contadorTentativas === 5){
+            if (contadorTentativas === 5) {
+                pontos = 5;
                 escudo.style.filter = "blur(5px)";
-                
             }
             if (contadorTentativas === 10) {
-                feedback.innerHTML += " Limite de tentativas atingido o nome do time é "+ nomeTime + ".";
+                pontos = 0;
+                feedback.innerHTML += " Limite de tentativas atingido. O nome do time é "+ nomeTime + ". Seus Pontos: " + pontos;
                 feedback.style.color = "red";
                 escudo.style.filter = "none";
                 document.getElementById("palpite").disabled = true;
                 document.getElementsByTagName("button")[0].disabled = true;
-                document.getElementsByTagName("button")[1].disabled = false; // Habilita o botão "Novo time"
+                document.getElementById("novoTimeBtn").disabled = false;
             }
         }
     }
 
     function novoTime() {
-        location.reload(); // Atualiza a página
+        location.reload();
     }
+    
 </script>
 
 {% endblock conteudo %}
