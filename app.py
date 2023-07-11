@@ -34,7 +34,7 @@ def obter_dados_time(n):
 
 @app.route("/", methods=['GET', 'POST'])
 def tabela():
-    numero = random.randint(0, 39)
+    numero = random.randint(0, 122)
     nome_time, escudo = obter_dados_time(numero)
     print(nome_time)
     return render_template("tabela.html", escudo=escudo, nome_time=nome_time, pontos=pontos.query.all())

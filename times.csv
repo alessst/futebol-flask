@@ -1,38 +1,124 @@
 time_id,nome_popular,sigla,escudo
-5,Chapecoense,CHA,https://cdn.api-futebol.com.br/escudos/638d348712019.svg
-43,Juventude,JUV,https://cdn.api-futebol.com.br/escudos/638d349b308c6.svg
-95,CSA,CSA,https://cdn.api-futebol.com.br/escudos/638d34b771b66.svg
-120,Sampaio Correa,SAM,https://cdn.api-futebol.com.br/escudos/638d34c43b39a.svg
-61,Ponte Preta,PON,https://cdn.api-futebol.com.br/escudos/638d34a46fbd4.svg
-117,Operario PR,OPE,https://cdn.api-futebol.com.br/escudos/638d34c28e3da.svg
-6,Avai,AVA,https://cdn.api-futebol.com.br/escudos/638d3487aa471.svg
-90,CRB,CRB,https://cdn.api-futebol.com.br/escudos/638d34b537c81.svg
-48,Brasil de Pelotas,BRA,https://cdn.api-futebol.com.br/escudos/638d349dcc476.svg
-54,Guarani,GUA,https://cdn.api-futebol.com.br/escudos/638d34a0c3635.svg
-102,Vitoria,VIT,https://cdn.api-futebol.com.br/escudos/638d34bb4bf99.svg
-205,Confianca,CON,https://cdn.api-futebol.com.br/escudos/638d34ec71a62.svg
-74,Nautico,NAU,https://cdn.api-futebol.com.br/escudos/638d34abdc099.svg
-9,Figueirense,FIG,https://cdn.api-futebol.com.br/escudos/638d348943c6c.svg
-76,Parana,PAR,https://cdn.api-futebol.com.br/escudos/638d34acf14b4.svg
-66,Botafogo-SP,BOT,https://cdn.api-futebol.com.br/escudos/638d34a7e5f9a.svg
-52,Oeste,OES,https://cdn.api-futebol.com.br/escudos/638d349fed9c0.svg
-22,Botafogo,BOT,https://cdn.api-futebol.com.br/escudos/638d349052558.svg
-45,Gremio,GRE,https://cdn.api-futebol.com.br/escudos/638d349c32bf1.svg
-18,Flamengo,FLA,https://cdn.api-futebol.com.br/escudos/638d348e3f815.svg
-56,Palmeiras,PAL,https://cdn.api-futebol.com.br/escudos/638d34a1cf247.svg
-64,Bragantino,BGT,https://cdn.api-futebol.com.br/escudos/638d34a5db2ec.svg
-26,Fluminense,FLU,https://cdn.api-futebol.com.br/escudos/638d3492a6e0b.svg
-57,Sao Paulo,SAO,https://cdn.api-futebol.com.br/escudos/638d34a23c311.svg
-44,Internacional,INT,https://cdn.api-futebol.com.br/escudos/638d349b92103.svg
-185,Athletico PR,CAP,https://cdn.api-futebol.com.br/escudos/638d34e1b8948.svg
-30,Atletico MG,CAM,https://cdn.api-futebol.com.br/escudos/638d3494f3380.svg
-131,Fortaleza,FOR,https://cdn.api-futebol.com.br/escudos/638d34c76d067.svg
-37,Cruzeiro,CRU,https://cdn.api-futebol.com.br/escudos/638d34984830b.svg
-204,Cuiaba,CUI,https://cdn.api-futebol.com.br/escudos/638d34ebcdafa.svg
-63,Santos,SAN,https://cdn.api-futebol.com.br/escudos/638d34a5749d6.svg
-68,Bahia,BAH,https://cdn.api-futebol.com.br/escudos/638d34a8b6bd8.svg
-65,Corinthians,COR,https://cdn.api-futebol.com.br/escudos/638d34a68419f.svg
-115,Goias,GOI,https://cdn.api-futebol.com.br/escudos/638d34c1c1d9f.svg
-23,Vasco,VAS,https://cdn.api-futebol.com.br/escudos/638d3490f1e73.svg
-33,America MG,AMG,https://cdn.api-futebol.com.br/escudos/638d34966e9c6.svg
-84,Coritiba,CFC,https://cdn.api-futebol.com.br/escudos/638d34b1296c2.svg
+1,Chapecoense,CHA,https://cdn.api-futebol.com.br/escudos/638d348712019.svg
+2,Juventude,JUV,https://cdn.api-futebol.com.br/escudos/638d349b308c6.svg
+3,Csa,CSA,https://cdn.api-futebol.com.br/escudos/638d34b771b66.svg
+4,Sampaio Correa,SAM,https://cdn.api-futebol.com.br/escudos/638d34c43b39a.svg
+5,Ponte Preta,PON,https://cdn.api-futebol.com.br/escudos/638d34a46fbd4.svg
+6,Operario Pr,OPE,https://cdn.api-futebol.com.br/escudos/638d34c28e3da.svg
+7,Avai,AVA,https://cdn.api-futebol.com.br/escudos/638d3487aa471.svg
+8,Crb,CRB,https://cdn.api-futebol.com.br/escudos/638d34b537c81.svg
+9,Brasil De Pelotas,BRA,https://cdn.api-futebol.com.br/escudos/638d349dcc476.svg
+10,Guarani,GUA,https://cdn.api-futebol.com.br/escudos/638d34a0c3635.svg
+11,Vitoria,VIT,https://cdn.api-futebol.com.br/escudos/638d34bb4bf99.svg
+12,Confianca,CON,https://cdn.api-futebol.com.br/escudos/638d34ec71a62.svg
+13,Nautico,NAU,https://cdn.api-futebol.com.br/escudos/638d34abdc099.svg
+14,Figueirense,FIG,https://cdn.api-futebol.com.br/escudos/638d348943c6c.svg
+15,Parana,PAR,https://cdn.api-futebol.com.br/escudos/638d34acf14b4.svg
+16,Botafogo-Sp,BOT,https://cdn.api-futebol.com.br/escudos/638d34a7e5f9a.svg
+17,Oeste,OES,https://cdn.api-futebol.com.br/escudos/638d349fed9c0.svg
+18,Botafogo,BOT,https://cdn.api-futebol.com.br/escudos/638d349052558.svg
+19,Gremio,GRE,https://cdn.api-futebol.com.br/escudos/638d349c32bf1.svg
+20,Flamengo,FLA,https://cdn.api-futebol.com.br/escudos/638d348e3f815.svg
+21,Palmeiras,PAL,https://cdn.api-futebol.com.br/escudos/638d34a1cf247.svg
+22,Bragantino,BGT,https://cdn.api-futebol.com.br/escudos/638d34a5db2ec.svg
+23,Fluminense,FLU,https://cdn.api-futebol.com.br/escudos/638d3492a6e0b.svg
+24,Sao Paulo,SAO,https://cdn.api-futebol.com.br/escudos/638d34a23c311.svg
+25,Internacional,INT,https://cdn.api-futebol.com.br/escudos/638d349b92103.svg
+26,Athletico Pr,CAP,https://cdn.api-futebol.com.br/escudos/638d34e1b8948.svg
+27,Atletico Mg,CAM,https://cdn.api-futebol.com.br/escudos/638d3494f3380.svg
+28,Fortaleza,FOR,https://cdn.api-futebol.com.br/escudos/638d34c76d067.svg
+29,Cruzeiro,CRU,https://cdn.api-futebol.com.br/escudos/638d34984830b.svg
+30,Cuiaba,CUI,https://cdn.api-futebol.com.br/escudos/638d34ebcdafa.svg
+31,Santos,SAN,https://cdn.api-futebol.com.br/escudos/638d34a5749d6.svg
+32,Bahia,BAH,https://cdn.api-futebol.com.br/escudos/638d34a8b6bd8.svg
+33,Corinthians,COR,https://cdn.api-futebol.com.br/escudos/638d34a68419f.svg
+34,Goias,GOI,https://cdn.api-futebol.com.br/escudos/638d34c1c1d9f.svg
+35,Vasco,VAS,https://cdn.api-futebol.com.br/escudos/638d3490f1e73.svg
+36,America Mg,AMG,https://cdn.api-futebol.com.br/escudos/638d34966e9c6.svg
+37,Coritiba,CFC,https://cdn.api-futebol.com.br/escudos/638d34b1296c2.svg
+38,Arsena,none,https://www.escudosfc.com.br/images/arsenal_crest.png
+39,Aston Villa,none,https://www.escudosfc.com.br/images/aston.png
+40,Bournemouth,none,https://www.escudosfc.com.br/images/bournemouth.png
+41,Brentford,none,https://www.escudosfc.com.br/images/brentford.png
+42,Brighton,none,https://www.escudosfc.com.br/images/brighton.png
+43,Burnley,none,https://www.escudosfc.com.br/images/burnley.png
+44,Chelsea,none,https://www.escudosfc.com.br/images/chelsea.png
+45,Crystalpalace,none,https://www.escudosfc.com.br/images/crystalpalace.png
+46,Everton,none,https://www.escudosfc.com.br/images/everton.png
+47,Fulham,none,https://www.escudosfc.com.br/images/fulham.jpg
+48,Liverpool,none,https://www.escudosfc.com.br/images/liverpool.png
+49,Luton Town,none,https://www.escudosfc.com.br/images/luton_eng.png
+50,Manchester City,none,https://www.escudosfc.com.br/images/man_city.png
+51,Manchester United,none,https://www.escudosfc.com.br/images/manchester.png
+52,Newcastle,none,https://www.escudosfc.com.br/images/newcastle.png
+53,Nottingham Forest,none,https://www.escudosfc.com.br/images/nott.png
+54,Sheffield United,none,https://www.escudosfc.com.br/images/sheffu.png
+55,Tottenham,none,https://www.escudosfc.com.br/images/tottenham.png
+56,West Ham,none,https://www.escudosfc.com.br/images/westham.png
+57,Wolverhampton,none,https://www.escudosfc.com.br/images/wolves.png
+58,Dinamo Tirana,none,https://www.escudosfc.com.br/images/dinamotirana.jpg
+59,Egnatia,none,https://www.escudosfc.com.br/images/egnatia_alb.png
+60,Erzeni,none,https://www.escudosfc.com.br/images/erzeni_alb.png
+61,Kukesi,none,https://www.escudosfc.com.br/images/kukes_alb.png
+62,Laci,none,https://www.escudosfc.com.br/images/laci_alb.png
+63,Augsburg,none,https://www.escudosfc.com.br/images/augsburg.png
+64,Bayer Leverkusen,none,https://www.escudosfc.com.br/images/leverkusen.png
+65,Bayern Munchen,none,https://www.escudosfc.com.br/images/bayern.png
+66,Bochum,none,https://www.escudosfc.com.br/images/bochum.png
+67,Borusia Dortmund,none,https://www.escudosfc.com.br/images/borusia.png
+68,Darmstadt,none,https://www.escudosfc.com.br/images/darmstadt_ger.png
+69,Eintracht Frankfurt,none,https://www.escudosfc.com.br/images/eintracht.png
+70,Freiburg,none,https://www.escudosfc.com.br/images/freiburg.jpg
+71,Heidenheim,none,https://www.escudosfc.com.br/images/heidenheim_ger.png
+72,Hoffenheim,none,https://www.escudosfc.com.br/images/hoffenheim_ger.png
+73,Wolfsburg,none,https://www.escudosfc.com.br/images/wolfsburg.png
+74,Werder Bremen,none,https://www.escudosfc.com.br/images/werder.png
+75,Rb Leipzig,none,https://www.escudosfc.com.br/images/rb_leipzig_ale.png
+76,Mainz 05,none,https://www.escudosfc.com.br/images/mainz.png
+77,Barcelona,none,https://www.escudosfc.com.br/images/barca.png
+78,Atletico De Madrid,none,https://www.escudosfc.com.br/images/atl.png
+79,Athletic Bilbao,none,https://www.escudosfc.com.br/images/athletic.png
+80,Almeria,none,https://www.escudosfc.com.br/images/almeria.png
+81,Real Betis,none,https://www.escudosfc.com.br/images/betis.png
+82,Real Madrid,none,https://www.escudosfc.com.br/images/real.png
+83,Sevilla,none,https://www.escudosfc.com.br/images/sevilla.png
+84,Getafe,none,https://www.escudosfc.com.br/images/getafe.png
+85,Celta De Vigo,none,https://www.escudosfc.com.br/images/celta.png
+86,Las Palmas,none,https://www.escudosfc.com.br/images/laspalmas.png
+87,Mallorca,none,https://www.escudosfc.com.br/images/mallorca.png
+88,Rayo Vallecano,none,https://www.escudosfc.com.br/images/rayo.png
+89,Atalanta,none,https://www.escudosfc.com.br/images/atalanta.png
+90,Fiorentina,none,https://www.escudosfc.com.br/images/fiore.png
+91,Inter Milao,none,https://www.escudosfc.com.br/images/intermilao.png
+92,Juventus,none,https://www.escudosfc.com.br/images/juventus_new.png
+93,Verona,none,https://www.escudosfc.com.br/images/verona.png
+94,Milan,none,https://www.escudosfc.com.br/images/milan.png
+95,Lazio,none,https://www.escudosfc.com.br/images/lazio.png
+96,Napoli,none,https://www.escudosfc.com.br/images/napoli.png
+97,Roma,none,https://www.escudosfc.com.br/images/ita_roma.png
+98,Sassuolo,none,https://www.escudosfc.com.br/images/sassuolo_ita.gif
+99,Rb New York,none,https://www.escudosfc.com.br/images/ny_red_bull.png
+100,Toronto Fc,none,https://www.escudosfc.com.br/images/toronto_fc.png
+101,Orlando City,none,https://www.escudosfc.com.br/images/orlando_city_mls.gif
+102,Al Hilal,none,https://www.escudosfc.com.br/images/alhilal_ara.png
+103,Al Wahda,none,https://www.escudosfc.com.br/images/al_wahda_ara.png
+104,Al Ahli,none,https://www.escudosfc.com.br/images/ahli_ara.png
+105,Al Nassr,none,https://www.escudosfc.com.br/images/alnassr.png
+106,Audax,none,https://www.escudosfc.com.br/images/audax.png
+107,Huachipato,none,https://www.escudosfc.com.br/images/huachipato.png
+108,Colo Colo,none,https://www.escudosfc.com.br/images/colocolo.png
+109,Universidad Catolica,none,https://www.escudosfc.com.br/images/unicatolica.png
+110,Universidad De Chile,none,https://www.escudosfc.com.br/images/unichile.png
+111,Palestino,none,https://www.escudosfc.com.br/images/palestino.gif
+112,Argentinos Jr,none,https://www.escudosfc.com.br/images/argentinos.png
+113,Colon,none,https://www.escudosfc.com.br/images/colon.png
+114,Racing,none,https://www.escudosfc.com.br/images/racingc.png
+115,River Plate,none,https://www.escudosfc.com.br/images/riverc.png
+116,San Lorenzo,none,https://www.escudosfc.com.br/images/san_loc.png
+117,Boca Juniors,none,https://www.escudosfc.com.br/images/bocc.png
+118,Tigre ,none,https://www.escudosfc.com.br/images/tigre_arg.png
+119,Velez Sarsfield,none,https://www.escudosfc.com.br/images/velez.png
+120,Bolivar,none,https://www.escudosfc.com.br/images/bolivar.png
+121,Strongest,none,https://www.escudosfc.com.br/images/strongest.png
+122,Oriente Petrolero,none,https://www.escudosfc.com.br/images/oriente.png
+123,Nacional Potosi,none,https://www.escudosfc.com.br/images/nacional_potosi_bol.png
