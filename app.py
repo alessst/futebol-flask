@@ -48,7 +48,8 @@ def tabela():
             jogador = Pontuacao(nome, ponto)
             db.session.add(jogador)
             db.session.commit()
-            return render_template("tabela.html", escudo=escudo, nome_time=nome_time, jogadores=Pontuacao.query.all())
+    
+    return render_template("tabela.html", escudo=escudo, nome_time=nome_time, jogadores=Pontuacao.query.all())
 
 if __name__ == "__main__":
     with app.app_context():
