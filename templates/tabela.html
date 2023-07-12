@@ -10,7 +10,7 @@
     <br>
     <div style="text-align: center;">
         <input type="text" id="palpite" name="valor" placeholder="Digite seu palpite">
-        <button onclick="verificarPalpite()">Verificar</button>
+        <button onclick="verificarPalpite()" id="btn-verificar" >Verificar</button>
     </div>
 
     <div class="button-container">
@@ -30,22 +30,18 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{url_for('tabela')}}"  method="POST">
-                            <div class="mb-3">
-                                <label for="nomeInput" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="nomeInput" name="nome_str" placeholder="Digite seu nome..." required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="pontoInput" class="form-label">Pontos</label>
-                                <input type="text" class="form-control" id="pontoInput" name="ponto_str" placeholder="Digite a pontuação..." required>
-                            </div>
-                            <button type="submit" onclick="exibirAlerta()" class="btn btn-success">Adicionar</button>
+                        <form action="{{url_for('tabela')}}" method="POST" class="form-control">
+                            <label for="nomeInput" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nomeInput" name="nome_str" placeholder="Digite seu nome..." required>
+                            <label for="pontoInput" class="form-label">Pontos</label>
+                            <input type="text" class="form-control" id="nomeInput" name="ponto_str" placeholder="Pontuação..." required>
+                            <button class="btn btn-success">Adicionar</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!--
+        
         <table class="table table-bordered table-hover">
                 <thead class="table-dark">
                     <tr>
@@ -62,27 +58,30 @@
                     {% endfor %}
                 </tbody>
             </table>
-        -->
+        
     </div>
 
-    
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 <script>
     var nomeTime = "{{ nome_time }}";
     var escudo = document.getElementById("escudo");
     var pontoTotalElement = document.getElementById("pontoTotal");
+    var btn_verificar = document.getElementById("btn-verificar");
     var contadorTentativas = 0;
     var pontos = 0;
 
     function exibirAlerta() {
         var nome = document.getElementById("nomeInput").value;
-        var ponto = document.getElementById("pontoInput").value;
-        pontos = 0;
-        atualizarPontos();
+        var pontosJogador = getPontos();
+        var pontosJogadorElement = document.getElementById("pontosJogador");
         return false; // Retorne false para evitar que o formulário seja enviado
     }
-
+    function zeraPontos(){
+        pontos = 0;
+        atualizarPontos();
+    }
     function getPontos() {
         var pontosStr = localStorage.getItem('pontos');
         return pontosStr ? parseInt(pontosStr) : pontos;
@@ -119,6 +118,7 @@
             escudo.style.filter = "none";
             document.getElementById("palpite").disabled = true;
             document.getElementById("novoTimeBtn").disabled = false;
+            document.getElementById("btn-verificar").disabled = true
         } else {
             contadorTentativas++;
             feedback.innerHTML = "Palpite incorreto. Tente novamente: " + contadorTentativas + " tentativas.";
@@ -149,6 +149,7 @@
         escudo.style.filter = "blur(10px)";
         document.getElementById("palpite").disabled = false;
         document.getElementById("novoTimeBtn").disabled = true;
+        document.getElementById("btn-verificar").disabled = false
         atualizarEscudo();
     }
 

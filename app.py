@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import csv
 import random
@@ -38,13 +38,17 @@ def tabela():
     nome_time, escudo = obter_dados_time(numero)
 
     if request.method == "POST":
-        nome = request.form.get("nome")
-        ponto = request.form.get("ponto")
-        jogador = Pontuacao(nome, ponto)
-        db.session.add(jogador)
-        db.session.commit()
-
-    return render_template("tabela.html", escudo=escudo, nome_time=nome_time, jogadores=Pontuacao.query.all())
+        nome = request.form.get("nome_str")
+        ponto = request.form.get("ponto_str")
+        print(f"nome:{nome} ||||| pontos: {ponto}")
+        if nome == None or ponto == None:
+            return render_template("tabela.html", escudo=escudo, nome_time=nome_time, jogadores=Pontuacao.query.all())
+        else:
+            print(f"nome:{nome} ||||| pontos: {ponto}")
+            jogador = Pontuacao(nome, ponto)
+            db.session.add(jogador)
+            db.session.commit()
+            return render_template("tabela.html", escudo=escudo, nome_time=nome_time, jogadores=Pontuacao.query.all())
 
 if __name__ == "__main__":
     with app.app_context():
