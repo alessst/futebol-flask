@@ -33,7 +33,8 @@
                         <form action="{{url_for('tabela')}}" method="POST" class="form-control">
                             <label for="nomeInput" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="nomeInput" name="nome_str" placeholder="Digite seu nome..." required>
-                            <button  c  lass="btn btn-success">Adicionar</button>
+                            <input name="ponto_str" id="pontos_alert" value="" required>
+                            <button  onclick="zeraPontos()"  lass="btn btn-success">Adicionar</button>
                         </form>
                     </div>
                 </div>
@@ -67,14 +68,10 @@
     var escudo = document.getElementById("escudo");
     var pontoTotalElement = document.getElementById("pontoTotal");
     var btn_verificar = document.getElementById("btn-verificar");
+    var pontosJogadorElement = document.getElementById("pontos_alert")
     var contadorTentativas = 0;
     var pontos = 0;
 
-    function exibirAlerta() {
-        var nome = document.getElementById("nomeInput").value;
-        zeraPontos();
-        return false; // Retorne false para evitar que o formulário seja enviado
-    }
     function zeraPontos(){
         pontos = 0;
         atualizarPontos();
@@ -86,10 +83,8 @@
 
     function atualizarPontos() {
         localStorage.setItem('pontos', pontos.toString());
-        var pontosJogadorElement = document.getElementById("pontos_alert")
         pontosJogadorElement.disabled = true;
-        var pt_str = pontos.toString()
-        pontosJogadorElement.value = pt_str;
+        pontosJogadorElement.value = pontos;
         
     }
 

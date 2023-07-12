@@ -31,7 +31,6 @@ def obter_nova_imagem():
     numero = random.randint(0, 122)
     nome, escudo = obter_dados_time(numero)
     return jsonify({"nome": nome, "escudo": escudo})
-
 @app.route("/", methods=['GET', 'POST'])
 def tabela():
     numero = random.randint(0, 122)
@@ -40,17 +39,19 @@ def tabela():
     if request.method == "POST":
         nome = request.form.get("nome_str")
         ponto = request.form.get("ponto_str")
-        print(f"nome:{nome} ||||| pontos: {ponto}")
+        print(f" nome : {nome} ||| ponto : {ponto}")
         if nome == None or ponto == None:
             return render_template("tabela.html", escudo=escudo, nome_time=nome_time, jogadores=Pontuacao.query.all())
         else:
-            print(f"nome:{nome} ||||| pontos: {ponto}")
-            jogador = Pontuacao(nome, ponto)
-            db.session.add(jogador)
-            db.session.commit()
+            jogador_existente = Pontuacao.query.filter_by(nome=nome).first()
+            if jogador_existente:
+                return render_template("tabela.html", escudo=escudo, nome_time=nome_time, jogadores=Pontuacao.query.all(), erro="O nome já existe!")
+            else:
+                jogador = Pontuacao(nome, ponto)
+                db.session.add(jogador)
+                db.session.commit()
     
     return render_template("tabela.html", escudo=escudo, nome_time=nome_time, jogadores=Pontuacao.query.all())
-
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
