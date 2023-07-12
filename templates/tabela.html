@@ -1,87 +1,162 @@
 {% extends "base.html" %}
 {% block conteudo %}
-
 </head>
 <body>
 
-    <h1 style="text-align: center;">Adivinhe o Escudo </h1>
-    <img id="escudo" src="{{escudo}}" alt="escudo borrado">
+    <h1 style="text-align: center;">Adivinhe o Escudo</h1>
+    <h3 style="text-align: center;">Pontuação: <span id="pontoTotal"></span></h3>
+    <div style="text-align: center;" id="feedback"></div>
+    <img id="escudo" class="escudo-borrado" src="{{escudo}}" alt="escudo borrado">
     <br>
     <div style="text-align: center;">
         <input type="text" id="palpite" name="valor" placeholder="Digite seu palpite">
         <button onclick="verificarPalpite()">Verificar</button>
     </div>
-    <p style="text-align: center;" id="feedback"></p>
-    <p name="ponto" id="ponto"></p>
 
     <div class="button-container">
         <button onclick="novoTime()" id="novoTimeBtn" disabled>Novo time</button>
     </div>
 
     <div class="table-container">
-        <a href="{{url_for('jogador')}}" class="btn btn-secondary" style="background-color: brown;">Adicione sua pontuação</a>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+            Adicionar Jogador
+        </button>
+        
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">Adicionar Jogador</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{url_for('tabela')}}"  method="POST">
+                            <div class="mb-3">
+                                <label for="nomeInput" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nomeInput" name="nome_str" placeholder="Digite seu nome..." required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pontoInput" class="form-label">Pontos</label>
+                                <input type="text" class="form-control" id="pontoInput" name="ponto_str" placeholder="Digite a pontuação..." required>
+                            </div>
+                            <button type="submit" onclick="exibirAlerta()" class="btn btn-success">Adicionar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
         <table class="table table-bordered table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Pontos</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for ponto in pontos %}
-                <tr>
-                    <td>{{ponto.nome}}</td>
-                    <td>{{ponto.pt}} </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Pontos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for jogador in jogadores %}
+                    <tr>
+                        <td>{{ jogador.nome }}</td>
+                        <td>{{ jogador.pt }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        -->
     </div>
-</table>
 
+    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 <script>
     var nomeTime = "{{ nome_time }}";
     var escudo = document.getElementById("escudo");
-    var par_ponto = document.getElementById("ponto")
-    var valorcss; 
-    var calculocss;
+    var pontoTotalElement = document.getElementById("pontoTotal");
     var contadorTentativas = 0;
-    var pontos = 10;
+    var pontos = 0;
+
+    function exibirAlerta() {
+        var nome = document.getElementById("nomeInput").value;
+        var ponto = document.getElementById("pontoInput").value;
+        pontos = 0;
+        atualizarPontos();
+        return false; // Retorne false para evitar que o formulário seja enviado
+    }
+
+    function getPontos() {
+        var pontosStr = localStorage.getItem('pontos');
+        return pontosStr ? parseInt(pontosStr) : pontos;
+    }
+
+    function atualizarPontos() {
+        localStorage.setItem('pontos', pontos.toString());
+        pontoTotalElement.textContent = pontos;
+    }
+
+    function atualizarEscudo() {
+        $.ajax({
+            url: "/obter_nova_imagem",
+            success: function(data) {
+                $("#escudo").attr("src", data.escudo);
+                nomeTime = data.nome;
+                $("#escudo").addClass("escudo-borrado"); // Adiciona a classe de desfoque ao escudo
+            },
+            error: function() {
+                console.log("Erro ao obter nova imagem do escudo.");
+            }
+        });
+    }
 
     function verificarPalpite() {
         var palpite = document.getElementById("palpite").value;
         var feedback = document.getElementById("feedback");
 
         if (palpite.toLowerCase() === nomeTime.toLowerCase()) {
+            pontos += 3;
+            getPontos();
             feedback.innerHTML = "Parabéns! Você acertou o escudo do " + nomeTime + ". Pontos: " + pontos;
             feedback.style.color = "green";
             escudo.style.filter = "none";
             document.getElementById("palpite").disabled = true;
-            document.getElementsByTagName("button")[0].disabled = true;
             document.getElementById("novoTimeBtn").disabled = false;
         } else {
             contadorTentativas++;
             feedback.innerHTML = "Palpite incorreto. Tente novamente: " + contadorTentativas + " tentativas.";
-            if (contadorTentativas === 5) {
-                pontos = 5;
-                escudo.style.filter = "blur(5px)";
+            if (contadorTentativas === 2) {
+                escudo.style.filter = " blur(5px)";
             }
-            if (contadorTentativas === 10) {
-                pontos = 0;
-                feedback.innerHTML += " Limite de tentativas atingido. O nome do time é "+ nomeTime + ". Seus Pontos: " + pontos;
+            if (contadorTentativas === 3) {
+                pontos -= 3;
+                feedback.innerHTML += " Limite de tentativas atingido. O nome do time é " + nomeTime + ". Seus Pontos: " + pontos;
                 feedback.style.color = "red";
                 escudo.style.filter = "none";
                 document.getElementById("palpite").disabled = true;
-                document.getElementsByTagName("button")[0].disabled = true;
                 document.getElementById("novoTimeBtn").disabled = false;
             }
+        }
+
+        atualizarPontos();
+        
+        if (contadorTentativas === 10) {
+            contadorTentativas = 0;
         }
     }
 
     function novoTime() {
-        location.reload();
+        contadorTentativas = 0;
+        document.getElementById("palpite").value = "";
+        document.getElementById("feedback").innerHTML = "";
+        escudo.style.filter = "blur(10px)";
+        document.getElementById("palpite").disabled = false;
+        document.getElementById("novoTimeBtn").disabled = true;
+        atualizarEscudo();
     }
-    
+
+    $(document).ready(function() {
+        pontos = getPontos();
+        atualizarPontos();
+        atualizarEscudo();
+    });
 </script>
 
 {% endblock conteudo %}
