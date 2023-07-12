@@ -4,8 +4,8 @@
 <body>
 
     <h1 style="text-align: center;">Adivinhe o Escudo</h1>
-    <h3 style="text-align: center;">Pontuação: <span id="pontoTotal"></span></h3>
-    <div style="text-align: center;" id="feedback"></div>
+    <h3 style="text-align: center;">Pontuação: <input name="ponto_str" id="pontos_alert" value=""></h3>
+    <div  style="text-align: center;" id="feedback"></div>
     <img id="escudo" class="escudo-borrado" src="{{escudo}}" alt="escudo borrado">
     <br>
     <div style="text-align: center;">
@@ -33,9 +33,7 @@
                         <form action="{{url_for('tabela')}}" method="POST" class="form-control">
                             <label for="nomeInput" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="nomeInput" name="nome_str" placeholder="Digite seu nome..." required>
-                            <label for="pontoInput" class="form-label">Pontos</label>
-                            <input type="text" class="form-control" id="nomeInput" name="ponto_str" placeholder="Pontuação..." required>
-                            <button onclick="zeraPontos()" class="btn btn-success">Adicionar</button>
+                            <button  c  lass="btn btn-success">Adicionar</button>
                         </form>
                     </div>
                 </div>
@@ -74,8 +72,7 @@
 
     function exibirAlerta() {
         var nome = document.getElementById("nomeInput").value;
-        var pontosJogador = getPontos();
-        var pontosJogadorElement = document.getElementById("pontosJogador");
+        zeraPontos();
         return false; // Retorne false para evitar que o formulário seja enviado
     }
     function zeraPontos(){
@@ -89,7 +86,11 @@
 
     function atualizarPontos() {
         localStorage.setItem('pontos', pontos.toString());
-        pontoTotalElement.textContent = pontos;
+        var pontosJogadorElement = document.getElementById("pontos_alert")
+        pontosJogadorElement.disabled = true;
+        var pt_str = pontos.toString()
+        pontosJogadorElement.value = pt_str;
+        
     }
 
     function atualizarEscudo() {
@@ -132,6 +133,7 @@
                 escudo.style.filter = "none";
                 document.getElementById("palpite").disabled = true;
                 document.getElementById("novoTimeBtn").disabled = false;
+                document.getElementById("btn-verificar").disabled = true
             }
         }
 
