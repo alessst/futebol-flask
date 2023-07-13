@@ -2,6 +2,7 @@
 {% block conteudo %}
 </head>
 <body>
+    <div id="timer">30</div>
 
     <h1 style="text-align: center;">Adivinhe o Escudo</h1>
     <h3 style="text-align: center;">Pontuação: <input id="pontos_alert" value=""></h3>
@@ -64,6 +65,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 <script>
+
+    var duracaoTimer = 30;
     var nomeTime = "{{ nome_time }}";
     var escudo = document.getElementById("escudo");
     var pontoTotalElement = document.getElementById("pontoTotal");
@@ -161,6 +164,27 @@
         atualizarEscudo();
     });
 
+    function atualizarPagina() {
+    // Atualiza a página
+    location.reload();
+    }
+
+    function atualizarTimer() {
+      var timerElement = document.getElementById('timer');
+      timerElement.textContent = duracaoTimer;
+
+      // Verifica se o timer chegou a zero
+      if (duracaoTimer === 0) {
+        atualizarPagina();
+      } else {
+        duracaoTimer--;
+        // Chama a função novamente após 1 segundo
+        setTimeout(atualizarTimer, 1000);
+      }
+    }
+
+    // Inicia o timer
+    atualizarTimer();
 </script>
 
 {% endblock conteudo %}
