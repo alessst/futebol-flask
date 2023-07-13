@@ -40,24 +40,25 @@
                 </div>
             </div>
         </div>
-        
         <table class="table table-bordered table-hover">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Pontos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for jogador in jogadores %}
-                    <tr>
-                        <td>{{ jogador.nome }}</td>
-                        <td>{{ jogador.pt }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Pontos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set jogadores_ordenados = jogadores | sort(attribute='pt', reverse=True) %}
+                {% for jogador in jogadores_ordenados %}
+                <tr>
+                    <td>{{ jogador.nome }}</td>
+                    <td>{{ jogador.pt }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
         
+
     </div>
 
 
