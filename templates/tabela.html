@@ -4,7 +4,7 @@
 <body>
 
     <h1 style="text-align: center;">Adivinhe o Escudo</h1>
-    <h3 style="text-align: center;">Pontuação: <input name="ponto_str" id="pontos_alert" value=""></h3>
+    <h3 style="text-align: center;">Pontuação: <input id="pontos_alert" value=""></h3>
     <div  style="text-align: center;" id="feedback"></div>
     <img id="escudo" class="escudo-borrado" src="{{escudo}}" alt="escudo borrado">
     <br>
@@ -15,7 +15,7 @@
     </div>
 
 
-<!--
+
     <div class="table-container">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
             Adicionar Jogador
@@ -32,9 +32,10 @@
                         <form action="{{url_for('tabela')}}" method="POST" class="form-control">
                             <label for="nomeInput" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="nomeInput" name="nome_str" placeholder="Digite seu nome..." required>
-                            <input name="ponto_str" id="pontos_alert" value="" required>
-                            <button  onclick="zeraPontos()"  lass="btn btn-success">Adicionar</button>
+                            <input name="ponto_str" id="pontos_alert1" value="">
+                            <button  onclick="salvarPontos()"  class="btn btn-success">Adicionar Jogador</button>
                         </form>
+                            
                     </div>
                 </div>
             </div>
@@ -55,7 +56,7 @@
                     </tr>
                     {% endfor %}
                 </tbody>
-            </table>-->
+            </table>
         
     </div>
 
@@ -68,9 +69,14 @@
     var pontoTotalElement = document.getElementById("pontoTotal");
     var btn_verificar = document.getElementById("btn-verificar");
     var pontosJogadorElement = document.getElementById("pontos_alert")
+    var pontosJogadorElement1 = document.getElementById("pontos_alert1")
     var contadorTentativas = 0;
     var pontos = 0;
-
+    
+    function salvarPontos(){
+        pontosJogadorElement1.value = pontos;
+        zeraPontos()
+    }
     function zeraPontos(){
         pontos = 0;
         atualizarPontos();
@@ -154,6 +160,7 @@
         atualizarPontos();
         atualizarEscudo();
     });
+
 </script>
 
 {% endblock conteudo %}

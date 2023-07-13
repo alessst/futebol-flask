@@ -31,6 +31,7 @@ def obter_nova_imagem():
     numero = random.randint(0, 122)
     nome, escudo = obter_dados_time(numero)
     return jsonify({"nome": nome, "escudo": escudo})
+
 @app.route("/", methods=['GET', 'POST'])
 def tabela():
     numero = random.randint(0, 122)
