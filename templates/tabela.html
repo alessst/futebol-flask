@@ -8,7 +8,7 @@
     <img id="escudo" class="escudo-borrado" src="{{escudo}}" alt="escudo borrado">
     <br>
     <div style="text-align: center;">
-        <input type="text" id="palpite" name="valor" placeholder="Digite seu palpite">
+        <input  autocomplete="off" type="text" id="palpite" name="valor" placeholder="Digite seu palpite">
         <button onclick="verificarPalpite()" id="btn-verificar" >Verificar</button>
         <button onclick="novoTime()" id="novoTimeBtn" disabled>Novo time</button>
     </div>
@@ -114,7 +114,7 @@
         if (palpite.toLowerCase() === nomeTime.toLowerCase()) {
             pontos += 3;
             getPontos();
-            feedback.innerHTML = "Parabéns! Você acertou o escudo do " + nomeTime + ". Pontos: " + pontos;
+            feedback.innerHTML = "Parabéns! Você acertou o escudo." + " Pontos: " + pontos;
             feedback.style.color = "green";
             escudo.style.filter = "none";
             document.getElementById("palpite").disabled = true;
@@ -128,7 +128,7 @@
             }
             if (contadorTentativas === 3) {
                 pontos -= 3;
-                feedback.innerHTML += " Limite de tentativas atingido. O nome do time é " + nomeTime + ". Seus Pontos: " + pontos;
+                feedback.innerHTML += " Limite de tentativas atingido." + ". Seus Pontos: " + pontos;
                 feedback.style.color = "red";
                 escudo.style.filter = "none";
                 document.getElementById("palpite").disabled = true;
