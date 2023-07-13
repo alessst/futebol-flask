@@ -29,9 +29,9 @@
         </div>
       </nav>
       <style>
-                #escudo {
+       #escudo {
           position: absolute;
-          top: 55%;
+          top: 60%;
           left: 50%;
           transform: translate(-50%, -50%);
           filter: blur(10px);
@@ -39,7 +39,7 @@
         }
         .escudo-borrado {
             position: absolute;
-            top: 55%;
+            top: 60%;
             left: 50%;
             transform: translate(-50%, -50%);
             filter: blur(10px);
@@ -59,7 +59,26 @@
               
         }
 
+        @media screen and (max-width: 400px) {
+          #escudo {
+          position: absolute;
+          top: 55%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          filter: blur(10px);
+          max-width: 50px;
+        }
+        .escudo-borrado {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(10px);
+            max-width: 50px;
+        }
 
+          
+        }
     </style>
     {% block conteudo%}
     {% endblock conteudo%}    
