@@ -14,7 +14,7 @@ time_id,nome_popular,sigla,escudo
 13,Nautico,NAU,https://cdn.api-futebol.com.br/escudos/638d34abdc099.svg
 14,Figueirense,FIG,https://cdn.api-futebol.com.br/escudos/638d348943c6c.svg
 15,Parana,PAR,https://cdn.api-futebol.com.br/escudos/638d34acf14b4.svg
-16,Botafogo-Sp,BOT,https://cdn.api-futebol.com.br/escudos/638d34a7e5f9a.svg
+16,Botafogo Sp,BOT,https://cdn.api-futebol.com.br/escudos/638d34a7e5f9a.svg
 17,Oeste,OES,https://cdn.api-futebol.com.br/escudos/638d349fed9c0.svg
 18,Botafogo,BOT,https://cdn.api-futebol.com.br/escudos/638d349052558.svg
 19,Gremio,GRE,https://cdn.api-futebol.com.br/escudos/638d349c32bf1.svg
@@ -65,7 +65,7 @@ time_id,nome_popular,sigla,escudo
 64,Bayern Leverkusen,none,https://www.escudosfc.com.br/images/leverkusen.png
 65,Bayern Munchen,none,https://www.escudosfc.com.br/images/bayern.png
 66,Bochum,none,https://www.escudosfc.com.br/images/bochum.png
-67,Borusia Dortmund,none,https://www.escudosfc.com.br/images/borusia.png
+67,Borussia Dortmund,none,https://www.escudosfc.com.br/images/borusia.png
 68,Darmstadt,none,https://www.escudosfc.com.br/images/darmstadt_ger.png
 69,Eintracht Frankfurt,none,https://www.escudosfc.com.br/images/eintracht.png
 70,Freiburg,none,https://www.escudosfc.com.br/images/freiburg.jpg
